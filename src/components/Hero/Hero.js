@@ -19,7 +19,9 @@ function Hero() {
     gsap.set([person, laptop, phone, floor, screenContent, heroText.current], { autoAlpha: 0 });
     gsap.set([screenBackground], { fill: 'black' });
     gsap.set(screen, { y: '-=5' });
-    gsap.set(document.body, { overflow: 'hidden' });
+    // gsap.set(document.body, { overflow: 'hidden' });
+
+    window.scrollTo(0, 0);
 
     const tl = gsap.timeline({ defaults: { ease: 'power3.inOut' } });
     tl.fromTo(person, { x: '-=100' }, { x: '+=100', autoAlpha: 0.3, duration: 3 })
@@ -33,7 +35,7 @@ function Hero() {
       .fromTo(phone, { y: '-=100%' }, { y: '+=100%', autoAlpha: 0.3, duration: 3 })
       .to(screenBackground, { fill: 'white' })
       .to([screenContent, person, phone], { autoAlpha: 1 }, '<')
-      .to(heroText.current, { autoAlpha: 1, duration: 2 })
+      .fromTo(heroText.current, { scale: 0.9 }, { autoAlpha: 1, scale: 1, duration: 2 })
       .set(document.body, { overflow: 'auto' });
   }, []);
 

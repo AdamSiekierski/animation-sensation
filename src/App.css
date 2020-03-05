@@ -1,0 +1,18 @@
+.footer {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+}
+
+.footer h1 {
+  margin-bottom: 2em;
+  font-size: 3em;
+}
+
+.footer h1 a {
+  color: white;
+}
