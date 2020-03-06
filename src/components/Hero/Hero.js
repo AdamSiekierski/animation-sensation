@@ -19,7 +19,7 @@ function Hero() {
     gsap.set([person, laptop, phone, floor, screenContent, heroText.current], { autoAlpha: 0 });
     gsap.set([screenBackground], { fill: 'black' });
     gsap.set(screen, { y: '-=5' });
-    // gsap.set(document.body, { overflow: 'hidden' });
+    gsap.set(document.body, { overflow: 'hidden' });
 
     window.scrollTo(0, 0);
 

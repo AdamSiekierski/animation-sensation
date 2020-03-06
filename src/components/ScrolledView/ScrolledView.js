@@ -16,19 +16,15 @@ function ScrolledView() {
 
     gsap.set([person, center, left, right], { autoAlpha: 0 });
 
-    const tl = gsap.timeline({ paused: true, defaults: { ease: 'power3.inOut' } });
+    const tl = gsap.timeline({ paused: true, defaults: { ease: 'power3.inOut', duration: 1 } });
     tl.to(person, { autoAlpha: 1 })
       .to(center, { autoAlpha: 1 })
       .to([left, right], { autoAlpha: 1 });
 
     new ScrollScene({
       triggerElement: scrolledWrapper.current,
-      gsap: { timeline: tl },
-      duration: window.innerHeight - 300,
-      offset: 300,
-      controller: {
-        addIndicators: true,
-      },
+      gsap: { timeline: tl, reverseSpeed: 4 },
+      triggerHook: 0.6,
     });
   }, []);
 
