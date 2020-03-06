@@ -7,6 +7,7 @@ import './ScrolledView.css';
 function ScrolledView() {
   const screens = useRef();
   const scrolledWrapper = useRef();
+  const imageWrapper = useRef();
 
   useEffect(() => {
     const person = screens.current.querySelector('#Person');
@@ -21,16 +22,24 @@ function ScrolledView() {
       .to(center, { autoAlpha: 1 })
       .to([left, right], { autoAlpha: 1 });
 
-    new ScrollScene({
-      triggerElement: scrolledWrapper.current,
-      gsap: { timeline: tl, reverseSpeed: 4 },
-      triggerHook: 0.6,
+    const scrollScene = new ScrollScene({
+      triggerElement: imageWrapper.current,
+      gsap: { timeline: tl },
+      triggerHook: 0,
+      duration: window.innerHeight / 2,
+      controller: {
+        addIndicators: true,
+      },
     });
+
+    scrollScene.Scene.setPin(imageWrapper.current);
   }, []);
 
   return (
     <div className="scrolledWrapper" ref={scrolledWrapper}>
-      <Screens ref={screens} />
+      <div className="imageWrapper" ref={imageWrapper}>
+        <Screens ref={screens} />
+      </div>
     </div>
   );
 }

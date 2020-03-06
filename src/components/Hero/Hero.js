@@ -32,7 +32,7 @@ function Hero() {
         },
         '-=1',
       )
-      .fromTo(phone, { y: '-=100%' }, { y: '+=100%', autoAlpha: 0.3, duration: 3 })
+      .fromTo(phone, { y: '-=50%' }, { y: '+=50%', autoAlpha: 0.3, duration: 2 })
       .to(screenBackground, { fill: 'white' })
       .to([screenContent, person, phone], { autoAlpha: 1 }, '<')
       .fromTo(heroText.current, { scale: 0.9 }, { autoAlpha: 1, scale: 1, duration: 2 })
